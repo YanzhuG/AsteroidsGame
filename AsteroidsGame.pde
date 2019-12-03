@@ -1,5 +1,6 @@
  Spaceship a =new Spaceship();
- Star [] nightSky = new Star[200];///your variable declarations here
+ Star [] nightSky = new Star[200];
+ Asteroid [] x = new Asteroid[10];///your variable declarations here
 public void setup() 
 {
   background(19,52,99);
@@ -7,6 +8,10 @@ public void setup()
  for (int i=0;i<nightSky.length;i++)
  {
    nightSky[i] = new Star();
+ }
+  for (int i=0;i<x.length;i++)
+ {
+   x[i] = new Asteroid();
  }//your code here
 }
 public void draw() 
@@ -19,6 +24,12 @@ public void draw()
   }
  a.show();
  a.move();
+ for(int i =0;i<x.length;i++)
+  {
+    x[i].show();
+    x[i].move();
+  }
+
  //your code here
 }
 public void keyPressed(){
