@@ -2,9 +2,10 @@ class Asteroid extends Floater
 {
  private int speed = (int)(Math.random()*2)-1;
  public Asteroid(){
-   corners = 6; 
-  int[] xS = {-5,-11,-5,6,13,7};
-  int [] yS = {-8,0,8,10,0,-8};//the number of corners, a triangular floater has 3   
+   corners = 6;
+   int t = (int)(Math.random()*3)+1;
+  int[] xS = {-5*t,-11*t,-5*t,6*t,13*t,7*t};
+  int [] yS = {-8*t,0*t,8*t,10*t,0*t,-8*t};//the number of corners, a triangular floater has 3   
   xCorners = xS;   
   yCorners = yS;  
   myColor=color(255,255,255,(int)(Math.random()*15)+185);
