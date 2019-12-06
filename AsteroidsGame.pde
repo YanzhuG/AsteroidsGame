@@ -1,6 +1,6 @@
  Spaceship a =new Spaceship();
  Star [] nightSky = new Star[200];
- Asteroid [] x = new Asteroid[10];///your variable declarations here
+ ArrayList <Asteroid> x = new ArrayList<Asteroid>(10);///your variable declarations here
 public void setup() 
 {
   background(19,52,99);
@@ -9,9 +9,9 @@ public void setup()
  {
    nightSky[i] = new Star();
  }
-  for (int i=0;i<x.length;i++)
+  for (int i=0;i<10;i++)
  {
-   x[i] = new Asteroid();
+   x.add(new Asteroid());
  }//your code here
 }
 public void draw() 
@@ -24,14 +24,28 @@ public void draw()
   }
  a.show();
  a.move();
- for(int i =0;i<x.length;i++)
+ for(int i =0;i<x.size();i++)
   {
-    x[i].show();
-    x[i].move();
+     if(
+       dist(
+          (float)(a.myCenterX),
+          (float)(a.myCenterY),
+          (float)(x.get(i).getAX()),
+          (float)(x.get(i).getAY()))<30)
+  {
+    x.remove(i);
+  }
+  else{
+    x.get(i).show();
+    x.get(i).move();
+  }
   }
 
  //your code here
 }
+ public void disappear(){
+  
+ }
 public void keyPressed(){
   if(key=='h'){
     a.accelerate(.5);

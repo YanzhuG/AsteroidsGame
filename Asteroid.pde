@@ -1,7 +1,8 @@
 class Asteroid extends Floater
 {
- private int speed = (int)(Math.random()*2)-1;
+ private int speed;
  public Asteroid(){
+   speed = (int)(Math.random()*3)-1;
    corners = 6;
    int t = (int)(Math.random()*3)+1;
   int[] xS = {-5*t,-11*t,-5*t,6*t,13*t,7*t};
@@ -15,8 +16,18 @@ class Asteroid extends Floater
   myDirectionX=((int)(Math.random()*2)+1)*Math.pow(-1,(int)(Math.random()*2)+1);
   myDirectionY=((int)(Math.random()*2)+1)*Math.pow(-1,(int)(Math.random()*2)+1);
  }
+ public void disappear(){
+   myCenterX=myCenterY=1000;
+ }
  public void move(){
    turn(speed);
    super.move(); 
  }
+ public float getAX(){
+   return (float)(myCenterX);
+ }
+ public float getAY(){
+   return (float)(myCenterY);
+ }
+
 }
