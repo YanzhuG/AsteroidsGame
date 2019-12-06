@@ -1,6 +1,6 @@
  Spaceship a =new Spaceship();
  Star [] nightSky = new Star[200];
- ArrayList <Asteroid> x = new ArrayList<Asteroid>(10);///your variable declarations here
+ ArrayList <Asteroid> ast = new ArrayList<Asteroid>(10);///your variable declarations here
 public void setup() 
 {
   background(19,52,99);
@@ -11,7 +11,7 @@ public void setup()
  }
   for (int i=0;i<10;i++)
  {
-   x.add(new Asteroid());
+   ast.add(new Asteroid());
  }//your code here
 }
 public void draw() 
@@ -24,20 +24,20 @@ public void draw()
   }
  a.show();
  a.move();
- for(int i =0;i<x.size();i++)
+ for(int i =0;i<ast.size();i++)
   {
      if(
        dist(
           (float)(a.myCenterX),
           (float)(a.myCenterY),
-          (float)(x.get(i).getAX()),
-          (float)(x.get(i).getAY()))<30)
+          (float)(ast.get(i).getAX()),
+          (float)(ast.get(i).getAY()))<30)
   {
-    x.remove(i);
+    ast.remove(i);
   }
   else{
-    x.get(i).show();
-    x.get(i).move();
+    ast.get(i).show();
+    ast.get(i).move();
   }
   }
 
