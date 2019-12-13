@@ -1,4 +1,4 @@
-Spaceship a =new Spaceship();
+Spaceship shipA =new Spaceship();
 Star [] nightSky = new Star[200];
 ArrayList <Asteroid> ast = new ArrayList<Asteroid>();
 ArrayList <Bullet> blt = new ArrayList<Bullet>();//your variable declarations here
@@ -25,14 +25,14 @@ public void draw()
   {
     nightSky[i].show();
   }
-  a.show();
-  a.move();
+  shipA.show();
+  shipA.move();
   for (int i =0; i<ast.size(); i++)
   {
     if (
       dist(
-      (float)(a.myCenterX), 
-      (float)(a.myCenterY), 
+      (float)(shipA.myCenterX), 
+      (float)(shipA.myCenterY), 
       (float)(ast.get(i).getAX()), 
       (float)(ast.get(i).getAY()))<30)
     {
@@ -59,10 +59,10 @@ public void draw()
       }
     }
   }
-  for(int a=0;a<blt.size();a++){
+  for(int q=0;q<blt.size();q++){
 
-      blt.get(a).show();
-      blt.get(a).move();
+      blt.get(q).show();
+      blt.get(q).move();
     }
 
   //your code here
@@ -70,20 +70,20 @@ public void draw()
 
 public void keyPressed() {
   if (key=='h') {
-    a.accelerate(.5);
+    shipA.accelerate(.5);
   }
   if (key=='a') {
-    a.turn(20);
+    shipA.turn(20);
   }
   if (key=='d') {
-    a.turn(-20);
+    shipA.turn(-20);
   }
   if (key=='s')
   {
-    a.myCenterX=(int)(Math.random()*500);
-    a.myCenterY=(int)(Math.random()*500);
+    shipA.myCenterX=(int)(Math.random()*500);
+    shipA.myCenterY=(int)(Math.random()*500);
   }
   if (key=='b') {
-    blt.add(new Bullet(a));
+    blt.add(new Bullet(shipA));
   }
 }
